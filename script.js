@@ -76,6 +76,19 @@ function drawMap() {
   }
 }
 
+
+//turn is a boolean (true means player 1's turn, false is player 2's turn)
+//col is the column that the user clicked (0 - 6)
+function dropPiece(turn, col) {
+  for (var r = 0; r < 6; r++) {
+    if (map[r][col] > 0) {
+      //new spot coordinates -> [r - 1][col]
+      turn = true ? board[r - 1][col] = "red" : board[r - 1][col] = "yellow";
+    }
+  }
+}
+
+
 function gameloop(currentTime) {
   if (!gameState === "running") return;
   startGL(currentTime);
